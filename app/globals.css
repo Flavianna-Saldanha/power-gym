@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+:root {
+  --bg-color: linear-gradient(100deg, #34383a 2.57%, #121516 95.91%);
+}
+
+body {
+  background: var(--bg-color);
+  color: #fff;
+}
