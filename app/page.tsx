@@ -1,5 +1,6 @@
 "use client";
 
+import { Header } from "@/src/components/Header";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -11,8 +12,8 @@ const Page = () => {
   };
 
   return (
-    <div className="container mx-auto">
-      <nav className="mt-10 lg:max-w-6xl lg:mx-auto lg:flex lg:justify-between lg:items-center">
+    <div>
+      <nav className="container mt-10 lg:max-w-6xl lg:mx-auto lg:flex lg:justify-between lg:items-center">
         <ul
           className={`
             ${openMenu ? "flex" : "hidden"}
@@ -77,6 +78,7 @@ const Page = () => {
           </button>
         </div>
       </nav>
+      <Header />
     </div>
   );
 };
