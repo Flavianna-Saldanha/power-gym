@@ -76,7 +76,9 @@ const Page = () => {
         </div>
       </nav>
 
-      {!openMenu && <Header />}
+      <div className={`${openMenu ? "hidden" : "block"} lg:block`}>
+        <Header />
+      </div>
     </div>
   );
 };
