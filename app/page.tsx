@@ -25,23 +25,18 @@ const Page = () => {
           `}
         >
           <li>
-            <a href="#" rel="noopener noreferrer">
-              Inicio
-            </a>
+            <a href="#">Inicio</a>
           </li>
           <li>
-            <a href="#" rel="noopener noreferrer">
-              Inicio
-            </a>
+            <a href="#">Inicio</a>
           </li>
           <li>
-            <a href="#" rel="noopener noreferrer">
-              Inicio
-            </a>
+            <a href="#">Inicio</a>
           </li>
         </ul>
+
         <div className="flex justify-center lg:relative lg:right-28">
-          <a href="#" rel="noopener noreferrer">
+          <a href="#">
             <Image
               src="/assets/logo.png"
               alt="Logo do site"
@@ -50,6 +45,7 @@ const Page = () => {
             />
           </a>
         </div>
+
         <div className="hidden lg:flex lg:items-center lg:gap-5">
           <Image
             src="/assets/search.png"
@@ -64,6 +60,7 @@ const Page = () => {
             height={18}
           />
         </div>
+
         <div className="flex justify-end relative right-4 -top-10 lg:hidden">
           <button
             onClick={toggleMenu}
@@ -78,7 +75,8 @@ const Page = () => {
           </button>
         </div>
       </nav>
-      <Header />
+
+      {!openMenu && <Header />}
     </div>
   );
 };
