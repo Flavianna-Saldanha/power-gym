@@ -3,82 +3,46 @@
 import { Header } from "@/src/components/Header";
 import Image from "next/image";
 import { useState } from "react";
+import { headerSections } from "@/src/data/headerSections";
 
 const Page = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const toggleMenu = () => {
-    setOpenMenu(!openMenu);
-  };
+  const currentSection = headerSections[currentIndex];
 
   return (
     <div>
-      <nav className="container mt-10 lg:max-w-6xl lg:mx-auto lg:flex lg:justify-between lg:items-center">
+      {/* NAV */}
+      <nav
+        className="container mt-10 lg:max-w-6xl lg:mx-auto lg:flex lg:justify-between lg:items-center transition-[background] duration-700"
+        style={{ background: currentSection.backgroundColor }}
+      >
         <ul
           className={`
             ${openMenu ? "flex" : "hidden"}
             absolute top-24 left-0 w-full h-screen bg-white/90  
             text-black text-xl uppercase 
             flex-col items-center justify-center gap-8 
-            lg:static lg:flex lg:h-auto lg:w-auto lg:mt-0 lg:bg-transparent
-            lg:text-white lg:normal-case lg:flex-row lg:justify-between lg:gap-20
+            lg:static lg:flex lg:h-auto lg:w-auto lg:bg-transparent
+            lg:text-white lg:normal-case lg:flex-row lg:gap-20
           `}
         >
-          <li>
-            <a href="#">Inicio</a>
-          </li>
-          <li>
-            <a href="#">Inicio</a>
-          </li>
-          <li>
-            <a href="#">Inicio</a>
-          </li>
+          <li>Inicio</li>
+          <li>Planos</li>
+          <li>Contato</li>
         </ul>
 
-        <div className="flex justify-center lg:relative lg:right-28">
-          <a href="#">
-            <Image
-              src="/assets/logo.png"
-              alt="Logo do site"
-              width={50}
-              height={70}
-            />
-          </a>
-        </div>
+        <Image src="/assets/logo.png" alt="Logo" width={50} height={70} />
 
-        <div className="hidden lg:flex lg:items-center lg:gap-5">
-          <Image
-            src="/assets/search.png"
-            alt="Logo de pesquisa"
-            width={18}
-            height={18}
-          />
-          <Image
-            src="/assets/user-round.png"
-            alt="Logo de user"
-            width={18}
-            height={18}
-          />
-        </div>
-
-        <div className="flex justify-end relative right-4 -top-10 lg:hidden">
-          <button
-            onClick={toggleMenu}
-            aria-label={openMenu ? "Fechar menu" : "Abrir menu"}
-          >
-            <Image
-              src="/assets/menu.png"
-              alt="Logo do menu"
-              width={30}
-              height={30}
-            />
-          </button>
+        <div className="hidden lg:flex gap-5">
+          <Image src="/assets/search.png" alt="" width={18} height={18} />
+          <Image src="/assets/user-round.png" alt="" width={18} height={18} />
         </div>
       </nav>
 
-      <div className={`${openMenu ? "hidden" : "block"} lg:block`}>
-        <Header />
-      </div>
+      {/* HEADER */}
+      <Header currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
     </div>
   );
 };
