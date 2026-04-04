@@ -1,6 +1,5 @@
 "use client";
 
-import { Header } from "@/src/components/Header";
 import Image from "next/image";
 import { useState } from "react";
 import { headerSections } from "@/src/data/headerSections";
@@ -40,9 +39,6 @@ const Page = () => {
           <Image src="/assets/user-round.png" alt="" width={18} height={18} />
         </div>
       </nav>
-
-      {/* HEADER */}
-      <Header currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
     </div>
   );
 };
